@@ -67,25 +67,25 @@ Model, **Google Colab** üzerinde **T4 GPU** kullanılarak eğitilmiştir. Eğit
 ### Eğitim Grafiği Analizi
 Aşağıdaki grafikte görüldüğü üzere, eğitim başlangıcında (yüksek stil ağırlığı nedeniyle) hata değeri $10^9$ mertebesindedir. Model, **Logaritmik ölçekte** görüldüğü üzere hızla yakınsayarak (*converge*) hatayı minimize etmiş ve stabil bir öğrenme sürecine girmiştir.
 
-![Eğitim Kayıp Grafiği](images/image_970a54.png)
+![Eğitim Kayıp Grafiği](images/Loss.png)
 *Şekil 1: Eğitim sürecindeki Toplam Kayıp (Total Loss) değişiminin logaritmik grafiği.*
 
 ### Görsel Değerlendirme (Sonuçlar)
 Modelin başarısı, nicel verilerin ötesinde nitel (görsel) olarak değerlendirilmiştir.
 
-![Stil Transferi Sonuçları](images/image_6da1e4.jpg)
+![Stil Transferi Sonuçları](images/Model_Ciktisi.png)
 *Şekil 2: Modelin 'The Scream' stili ile köprü görseli üzerindeki çıktısı.*
 
 ### Parametre Analizi (Hiperparametre Etkisi)
 Proje sürecinde farklı `Content Weight` (İçerik Ağırlığı) ve `Learning Rate` (Öğrenme Hızı) değerleri denenmiştir.
 
-* **İçerik ağırlığı düşük tutulduğunda ($10^3$):** Nesnelerin kaybolduğu ve görüntünün çok bozulduğu görülmüştür (Bkz. Şekil 3, Sol Alt).
-* **Optimum değerde ($10^4$):** Yapısal bütünlüğün korunduğu ve stilin dengeli dağıldığı gözlemlenmiştir (Bkz. Şekil 3, Sağ Alt - Final Model).
-* **Yüksek Learning Rate ($1e-2$):** Renk patlamaları ve anlamsız dokular oluşmuştur (Bkz. Şekil 3, Üst Sıra).
+* **İçerik ağırlığı düşük tutulduğunda ($10^3$):** Nesnelerin kaybolduğu ve görüntünün bozulduğu görülmüştür (Bkz. Şekil 3, Sol Taraf).
+* **İçerik ağırlığı çok düşükken ($10$):** Yapısal bütünlük neredeyse tamamen bozulmuştur (Bkz. Şekil 3, Orta).
+* **Yüksek Learning Rate ($1e-2$):** Renk patlamaları ve anlamsız dokular oluşmuştur (Bkz. Şekil 3, Sağ Taraf).
 
 Aşağıdaki görselde, bu farklı parametrelerin model çıktısı üzerindeki dramatik etkisi karşılaştırmalı olarak sunulmuştur.
 
-![Hiperparametre Karşılaştırması](images/image_593b80.png)
+![Hiperparametre Karşılaştırması](images/Parametre_Degisimi.png)
 *Şekil 3: Farklı Learning Rate (LR) ve Content Weight (CW) değerlerinin model çıktısı üzerindeki etkisi.*
 
 ---
