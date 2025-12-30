@@ -68,13 +68,27 @@ Model, **Google Colab** üzerinde **T4 GPU** kullanılarak eğitilmiştir. Eğit
 Aşağıdaki grafikte görüldüğü üzere, eğitim başlangıcında (yüksek stil ağırlığı nedeniyle) hata değeri $10^9$ mertebesindedir. Model, **Logaritmik ölçekte** görüldüğü üzere hızla yakınsayarak (*converge*) hatayı minimize etmiş ve stabil bir öğrenme sürecine girmiştir.
 
 ![Eğitim Kayıp Grafiği](images/Loss.png)
+
 *Şekil 1: Eğitim sürecindeki Toplam Kayıp (Total Loss) değişiminin logaritmik grafiği.*
 
-### Görsel Değerlendirme (Sonuçlar)
-Modelin başarısı, nicel verilerin ötesinde nitel (görsel) olarak değerlendirilmiştir.
+### Görsel Değerlendirme ve Testler
+Modelin başarısı, iki temel kriter üzerinden test edilmiştir: **Stil Adaptasyonu** ve **İçerik Genelleştirmesi**.
 
-![Stil Transferi Sonuçları](images/Model_Ciktisi.png)
-*Şekil 2: Modelin 'The Scream' stili ile köprü görseli üzerindeki çıktısı.*
+#### A. Stil Adaptasyon Testi (Style Versatility)
+Modelin aynı içerik görüntüsü (Content) üzerinde farklı sanatsal dokuları nasıl uyguladığı test edilmiştir. Aşağıdaki görselde, kaynak görüntüsünün yapısal bütünlüğü korunurken, renk paleti ve fırça darbelerinin her stile göre başarıyla değiştiği görülmektedir.
+
+![Farklı Stillerle Aynı Resim](images/Farkli_Stil.png)
+
+*Şekil 2: Modelin aynı içerik üzerinde farklı stil (Style) ağırlıklarına tepkisi.*
+
+#### B. İçerik Genelleştirme Testi (Content Generalization)
+Modelin farklı kaynak görsellerinde aynı stili nasıl işlediği görülmektedir. 
+
+Sonuçlar, modelin COCO veri seti ile eğitilmesi sayesinde **semantik yapıyı** (nesne sınırlarını) kaybetmeden stili her türlü görüntüye uygulayabildiğini göstermektedir.
+
+![Aynı Stille Farklı Resimler](images/Farkli_Kaynak.png)
+
+*Şekil 3: Sabit bir stilin (Style) farklı içerik türleri (Content) üzerindeki başarısı.*
 
 ### Parametre Analizi (Hiperparametre Etkisi)
 Proje sürecinde farklı `Content Weight` (İçerik Ağırlığı) ve `Learning Rate` (Öğrenme Hızı) değerleri denenmiştir.
@@ -86,7 +100,7 @@ Proje sürecinde farklı `Content Weight` (İçerik Ağırlığı) ve `Learning 
 Aşağıdaki görselde, bu farklı parametrelerin model çıktısı üzerindeki dramatik etkisi karşılaştırmalı olarak sunulmuştur.
 
 ![Hiperparametre Karşılaştırması](images/Parametre_Degisimi.png)
-*Şekil 3: Farklı Learning Rate (LR) ve Content Weight (CW) değerlerinin model çıktısı üzerindeki etkisi.*
+*Şekil 4: Farklı Learning Rate (LR) ve Content Weight (CW) değerlerinin model çıktısı üzerindeki etkisi.*
 
 ---
 
